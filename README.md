@@ -1,4 +1,4 @@
-Teste sensedia
+Teste Desafio sensedia
 
 Especificação de Requisito
 O usuário deve realizar a autenticação no facebook.
