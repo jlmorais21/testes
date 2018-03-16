@@ -9,4 +9,4 @@ Realizar uma alteração no post acima.
 (https://developers.facebook.com/docs/graph-api/reference/v2.12/post#updating)
 
 - O teste realiza uma autenticação no FB, realiza um post e apos isso edita o mesmo.
-- Foi utilizado o Postamn, e a automação feita em java com rest assured no eclipse.
+- Todas as chamadas das APIs foram feitas utilizando o POSTMAN inclusive os testes das asserções.
