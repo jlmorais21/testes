@@ -1,0 +1,163 @@
+{
+	"info": {
+		"name": "facebook_api",
+		"_postman_id": "2a76411b-9868-4cc3-40fb-03196ee08d14",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8cc3ecd9-af30-4758-b0d2-50a990307e69",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Valida status 200 para request\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer EAAZA0RkVAT2IBALaBEKA10aolwEItZAnTK0xb0eIYFxSlfNaK2R53Fq2CWhZCb3ngdw1eILpOMCMiZB7lgfNZBhcgwtlq8DdWORkdSaLtdOcRxIrNxeYa8hfJGWLrDbacxL5XeNV2ZBZCeAwaC6hWRxUgOMEfXZBoNsZC0PMEZAnwTpptjEc9yWcUPvbrYJDAERy9NgMj1nAJ2fGv0OwuWB64uXMXuuGdttAfpELt94GwJFRcRZC53cqsgU"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://graph.facebook.com/v2.12/me",
+					"protocol": "https",
+					"host": [
+						"graph",
+						"facebook",
+						"com"
+					],
+					"path": [
+						"v2.12",
+						"me"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Post feed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5174c5c1-cc16-49a9-b922-320eb8c8fe38",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Valida status 200 ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    var jsonData = pm.response.json();",
+							"    pm.globals.set(\"POST_ID\", jsonData.id);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer EAAZA0RkVAT2IBALaBEKA10aolwEItZAnTK0xb0eIYFxSlfNaK2R53Fq2CWhZCb3ngdw1eILpOMCMiZB7lgfNZBhcgwtlq8DdWORkdSaLtdOcRxIrNxeYa8hfJGWLrDbacxL5XeNV2ZBZCeAwaC6hWRxUgOMEfXZBoNsZC0PMEZAnwTpptjEc9yWcUPvbrYJDAERy9NgMj1nAJ2fGv0OwuWB64uXMXuuGdttAfpELt94GwJFRcRZC53cqsgU"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"valor inserção\"\n}"
+				},
+				"url": {
+					"raw": "https://graph.facebook.com/v2.12/me/feed",
+					"protocol": "https",
+					"host": [
+						"graph",
+						"facebook",
+						"com"
+					],
+					"path": [
+						"v2.12",
+						"me",
+						"feed"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update feed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7c80b3b9-2f88-4a8e-85b7-eeefec68b850",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Valida status 200 para request\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer EAAZA0RkVAT2IBALaBEKA10aolwEItZAnTK0xb0eIYFxSlfNaK2R53Fq2CWhZCb3ngdw1eILpOMCMiZB7lgfNZBhcgwtlq8DdWORkdSaLtdOcRxIrNxeYa8hfJGWLrDbacxL5XeNV2ZBZCeAwaC6hWRxUgOMEfXZBoNsZC0PMEZAnwTpptjEc9yWcUPvbrYJDAERy9NgMj1nAJ2fGv0OwuWB64uXMXuuGdttAfpELt94GwJFRcRZC53cqsgU"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"valor atualização\"\n}"
+				},
+				"url": {
+					"raw": "https://graph.facebook.com/{{POST_ID}}",
+					"protocol": "https",
+					"host": [
+						"graph",
+						"facebook",
+						"com"
+					],
+					"path": [
+						"{{POST_ID}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
